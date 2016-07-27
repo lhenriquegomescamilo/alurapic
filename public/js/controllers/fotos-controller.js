@@ -1,6 +1,8 @@
-angular.module('alurapic').controller('FotosController', function($scope){
-	$scope.foto = {
-		titulo : 'Leao',
-		url : 'http://i.imgur.com/h8Hon.jpg'
-	};
+angular.module('alurapic').controller('FotosController', function($scope, $http){
+	$scope.fotos = [];
+	$http.get('v1/fotos').success(function(fotos){
+		$scope.fotos = fotos;
+	}).error(function(error){
+		console.log("Erro encontrado"+erro);
+	});
 });
