@@ -8,7 +8,7 @@
         <script src="js/lib/angular.min.js"></script>
         <script src="js/main.js"></script>
         <script src="js/controllers/fotos-controller.js"></script>
-        <script src="js/directives/minhas-directive.js"></script>
+        <script src="js/directives/minhas-diretivas.js"></script>
 
     </head>
     <body ng-controller="FotosController">
@@ -16,6 +16,8 @@
             <div class="jumbotron">
                 <h1 class="text-center">Alurapic</h1>
             </div>
+            <div class="row"></div>
+
             <meu-painel ng-repeat="foto in fotos" titulo="{{foto.titulo}}">
                 <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}"></img>
             </meu-painel>
