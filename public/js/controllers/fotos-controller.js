@@ -3,6 +3,8 @@ angular.module('alurapic').controller('FotosController', function($scope, $http)
 
 	$scope.filtro = '';
 
+	$scope.mensagem = '';
+
 	salvarFotos($scope,$http);
 
 	$scope.remover = function(foto){
@@ -10,9 +12,9 @@ angular.module('alurapic').controller('FotosController', function($scope, $http)
 		.success(function(){
 			var indeceFoto = $scope.fotos.indexOf(foto);
 			$scope.fotos.splice(indeceFoto,1);
-			console.log('Foto '+foto.titulo+' foi removida com sucesso');
+			$scope.mensagem = 'Foto '+foto.titulo+' foi removida com sucesso';
 		}).error(function(error){
-			console.log('Erro ao tentar remover '+error);
+			$scope.mensagem =  'Erro ao tentar remover '+error;
 		});
 	};
 
