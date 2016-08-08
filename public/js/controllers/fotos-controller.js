@@ -8,7 +8,7 @@ angular.module('alurapic').controller('FotosController', function($scope, $http)
 	salvarFotos($scope,$http);
 
 	$scope.remover = function(foto){
-		$http.delete('/v1/fotos/' + foto._id)
+		$http.delete('v1/fotos/' + foto._id)
 		.success(function(){
 			var indeceFoto = $scope.fotos.indexOf(foto);
 			$scope.fotos.splice(indeceFoto,1);
@@ -21,7 +21,7 @@ angular.module('alurapic').controller('FotosController', function($scope, $http)
 });
 
 var salvarFotos = function($scope ,$http){
-	$http.get('/v1/fotos').success(function(fotos){
+	$http.get('v1/fotos').success(function(fotos){
 		$scope.fotos = fotos;
 	}).error(function(error){
 		console.log("Erro encontrado"+erro);
