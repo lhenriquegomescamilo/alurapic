@@ -2,7 +2,6 @@ var api = require('../api'),
     path = require('path');
 
 module.exports  = function(app) {
-    console.log(api.remove);
     app.route('/v1/fotos')
         .post(api.adiciona)
         .get(api.lista);
