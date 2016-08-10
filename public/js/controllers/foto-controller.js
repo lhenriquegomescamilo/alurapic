@@ -1,5 +1,5 @@
 angular.module('alurapic')
-.controller('Fotocontroller', function($scope, $http, $routeParams){
+.controller('Fotocontroller', function($scope, $http, $routeParams,recursoFoto){
       $scope.foto = {};
       $scope.mensagem = '';
 
@@ -16,11 +16,10 @@ angular.module('alurapic')
       $scope.submeter = function(){
         if($scope.formulario.$valid){
           if($scope.foto._id){
-              $http.put('v1/fotos/'+ $scope.foto._id, $scope.foto)
-              .success(function(){
-                  $scope.mensagem = "Mensagem alterado com sucesso";
-              }).error(function(erro){
-                console.log(erro);
+              recursoFoto.update({fotoId : $scope.foto._id},$scope.foto, function(){
+                $scope.mensagem = "Alterado com sucesso";
+              }, function(error){
+                console.log(error);
                 $scope.mensagem = 'Não foi possível alterar a foto '+$scope.foto.titulo;
               });
           } else {
