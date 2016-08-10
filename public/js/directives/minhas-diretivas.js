@@ -22,9 +22,6 @@ angular.module('minhasDirectivas',[])
 .directive('meuFocus',function(){
   return {
     restrict : "A",
-    scope : {
-      focado : "="
-    },
     link : function(scope, element){
       scope.$on('fotoCadastrada',function(){
         element[0].focus();
