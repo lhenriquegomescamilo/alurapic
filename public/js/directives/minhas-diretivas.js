@@ -1,10 +1,21 @@
-angular.module('minhasDirectivas',[]).directive('meuPainel',function(){
+angular.module('minhasDirectivas',[])
+.directive('meuPainel',function(){
   return {
-    restict:"AE",
+    restrict:"AE",
     scope : {
       titulo : "@"
     },
     transclude: true,
     templateUrl: "js/directives/meu-painel.html"
   }
+})
+.directive('meuBotaoPerigo', function(){
+    return {
+      restrict : "E",
+      scope : {
+          nome : '@',
+          acao : '&'
+      },
+      template : '<button ng-click="acao(foto)" class="btn btn-danger btn-block">{{nome}}</button>'
+    }
 });
